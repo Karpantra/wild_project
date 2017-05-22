@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <ul>
+        <li><%= @user.name.capitalize %></li>
+        <li><%= @user.email %></li>
+        <li><%= @user.phone_number %></li>
+        <% if @user.description == "" %>
+        <li>You do not have wrote about you and your project</li>
+        <% else %>
+        <li><%= @user.description %></li>
+        <% end %>
+      </ul>
+
+
+      <%= simple_form_for @user do |f| %>
+      <%= f.input :description, placeholder: "Write about yourself and what you are looking for :)" %>
+      <%= f.submit "Udpate description" %>
+      <% end %>
+      <%= link_to edit_user_registration_path do %>
+
+      <div class="btn btn-info">
+        <i class="fa fa-edit"> Edit profile</i>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
