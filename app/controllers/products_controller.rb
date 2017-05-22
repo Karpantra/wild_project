@@ -1,4 +1,4 @@
-class AssetsController < ApplicationController
+class ProductsController < ApplicationController
 
   def index
     @products = Product.all
@@ -13,10 +13,10 @@ class AssetsController < ApplicationController
   end
 
   def create
-    @product = Product.new(asset_params)
+    @product = Product.new(product_params)
     @product.user = current_user
     if @product.save
-      redirect_to asset_path(@product)
+      redirect_to product_path(@product)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class AssetsController < ApplicationController
     @product = Product.find(params[:id])
     @product.user = current_user
     if @product.update
-      redirect_to asset_path(@product)
+      redirect_to product_path(@product)
     else
       render :edit
     end
@@ -40,12 +40,12 @@ class AssetsController < ApplicationController
     @product = Product.find(params[:id])
     @restaurant.destroy
 
-    redirect_to asset_path(@product)
+    redirect_to product_path(@product)
   end
 
   private
 
-  def asset_params
-    params.require(:asset).permit(:address, :city, :title, :price, :description, :capacity)
+  def product_params
+    params.require(:product).permit(:address, :city, :title, :price, :description, :capacity)
   end
 end
