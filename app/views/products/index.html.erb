@@ -6,5 +6,10 @@ Products list :
     <p><%= product.price %></p>
     <p><%= product.description %></p>
     <p><%= product.capacity %></p>
+    <% product.photos.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+    <% end %>
+    <%= link_to "Edit your product", edit_product_path(current_user) %>
   <% end %>
+
 

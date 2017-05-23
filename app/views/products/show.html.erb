@@ -4,3 +4,6 @@
 <p><%= @product.price %></p>
 <p><%= @product.description %></p>
 <p><%= @product.capacity %></p>
+<% @product.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>

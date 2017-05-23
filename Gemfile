@@ -7,7 +7,6 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
-gem 'cloudinary'
 
 gem 'sass-rails'
 gem 'devise'
@@ -17,6 +16,10 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
 
 # Gemfile
 gem 'cloudinary'
@@ -32,4 +35,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'attachinary', github: 'assembler/attachinary'
 
