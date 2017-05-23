@@ -17,13 +17,14 @@
           <% else %>
             <div class="card"
               style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('<%= image_tag product.seed_picture, width: 300, height: 200, crop: :fill %>')">
+                     url('<%= image_path product.seed_picture, height: 300, width: 400, crop: :fill %>')">
+
               <div class="card-category"><%= product.city %></div>
               <div class="card-description">
                 <h2><%= product.title %></h2>
                 <p><%= product.price %> EUROS</p>
               </div>
-              <a class="card-link" href="#" ></a>
+              <a class="card-link" href="#"></a>
             </div>
           <% end %>
         </div>
@@ -31,6 +32,7 @@
         <%= link_to "Edit your product", edit_product_path(product), :class => "btn btn-success" %>
       </div>
     </div>
+  <% end %>
 
 
 
