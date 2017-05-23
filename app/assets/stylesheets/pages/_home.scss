@@ -57,6 +57,18 @@
   margin-top: -40px;
 }
 
+
+.align-image a {
+display: inline-block;
+position: relative;
+transform-style: preserve-3d;
+transition: 0.4s;
+}
+.align-image a:hover {
+transform: rotateY(180deg);
+}
+
+
 .home-first-wrapper {
   margin-bottom: 60px
 }
@@ -116,12 +128,3 @@
   font-size: 11px;
 }
 
-a {
-display: inline-block;
-position: relative;
-transform-style: preserve-3d;
-transition: 0.4s;
-}
-a:hover {
-transform: rotateY(180deg);
-}
