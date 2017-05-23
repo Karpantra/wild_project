@@ -3,7 +3,7 @@
   font-size: 25px;
   line-height: 30px;
   width: 30px;
-  color: grey;
+  color: gray;
 }
 .badge {
   position: relative;
@@ -38,4 +38,10 @@
 .badge-bordered {
   box-shadow:  0 2px 2px rgba(0,0,0,0.2);
   border: #222222 1px solid;
+}
+
+.badge-footer {
+  position: relative;
+  top: 40px;
+  right: 30px;
 }
