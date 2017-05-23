@@ -20,6 +20,10 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
+
 # Gemfile
 gem 'cloudinary'
 
@@ -34,4 +38,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'attachinary', github: 'assembler/attachinary'
 
