@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20170523104027) do
     t.string   "name"
     t.text     "description"
     t.string   "phone_number"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
