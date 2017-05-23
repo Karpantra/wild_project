@@ -15,7 +15,7 @@
 
 //smooth effect for homepage link image
 
-$('a[href^=".carousel-top-link "]').click(function(){
+$('a[href^="#carousel-example-generic"]').click(function(){
   var the_id = $(this).attr("href");
   var speed = 850;
   $('html, body').animate({
