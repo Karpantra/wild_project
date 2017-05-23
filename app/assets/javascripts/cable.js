@@ -23,3 +23,4 @@ $('a[href^="#carousel-example-generic"]').click(function(){
   }, speed);
   return false;
 });
+
