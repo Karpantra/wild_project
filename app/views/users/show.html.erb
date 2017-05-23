@@ -1,30 +1,57 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <ul>
-        <li><%= @user.name.capitalize %></li>
-        <li><%= @user.email %></li>
-        <li><%= @user.phone_number %></li>
-        <% if @user.description == "" %>
-        <li>You do not have wrote about you and your project</li>
-        <% else %>
-        <li><%= @user.description %></li>
-        <% end %>
-      </ul>
 
-
-      <%= simple_form_for @user do |f| %>
-      <%= f.input :description, placeholder: "Write about yourself and what you are looking for :)" %>
-      <%= f.submit "Udpate description" %>
-      <% end %>
-      <%= link_to edit_user_registration_path do %>
-
-      <div class="btn btn-info">
-        <i class="fa fa-edit"> Edit profile</i>
-      </div>
-      <% end %>
-    </div>
+<div class="panel">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @user.name.capitalize %>s'profile </h3>
   </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 " align="center">
+      <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+
+      <div class="container block-page">
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <div class="carduser">
+              <p><strong>Name: </strong><%= @user.name.capitalize %></p>
+              <p><strong>Email </strong><%= @user.email %></p>
+              <p><strong>Mobile: </strong><%= @user.phone_number %></p>
+              <% if @user.description == "" %>
+              <p>You do not have wrote about you and your project</p>
+              <% else %>
+              <p><strong>Description: </strong><%= @user.description %></p>
+              <% end %>
+              <br>
+              <br>
+              <br>
+
+
+              <%= simple_form_for @user do |f| %>
+              <%= f.input :description, placeholder: "Write about yourself and what you are looking for :)" %>
+              <br>
+
+             <a data-original-title="Edit description" data-toggle="tooltip" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-edit"></i><%= f.submit "edit description" %></a>
+
+
+            <% end %>
+
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+
+       <a href="#" class="btn btn-primary">My reviews</a>
+       <a href="#" class="btn btn-primary">My flats</a>
+     </div>
+   </div>
+ </div>
+ <div class="panel-footer">
+  <a data-original-title="Messenger" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+  <span class="pull-right">
+    <a href="edit.html" data-original-title="Edit profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+    <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i> </a>
+  </span>
+</div>
 </div>
 
 
