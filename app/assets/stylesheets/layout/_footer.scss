@@ -3,16 +3,11 @@
 
 footer {
  background-color:#222222;
- min-height:350px;
+
+
  font-family: 'Open Sans', sans-serif;
-}
-.footerleft { margin-top:50px;
-  padding:0 36px;
-}
-.logofooter { margin-bottom:10px;
-  font-size:25px;
-  color:#fff;
-  font-weight:700;
+  margin-top:10px;
+  padding:0 10px;
 }
 
 .footerleft p {
@@ -27,7 +22,7 @@ footer {
 
 
 .paddingtop-bottom {
-  margin-top:50px;
+
 }
 .footer-ul { list-style-type:none;
   padding-left:0px;
@@ -71,14 +66,18 @@ footer {
 .icon { float:left; margin-right:5px;}
 
 
-.copyright { min-height:40px;
+.copyright {
   background-color: #222222;
+  margin-bottom:0px;
+  position: relative;
+  bottom: 0;
+
 }
 .copyright p {
   text-align:left;
   color:#FFF;
-  padding:10px 0;
-  margin-bottom:0px;
+
+
 }
 .heading7 { font-size:21px;
   font-weight:700;
@@ -112,5 +111,9 @@ footer {
     color:#FFF;
     font-size:12px;
   }
-  .footer-container {
+
+  .share-links {
+    position: relative;
+    right: 20px;
   }
+
