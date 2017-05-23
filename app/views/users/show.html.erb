@@ -8,7 +8,10 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-3 col-lg-3 " align="center">
-        <img alt="User Pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxxUQA-4cHmO8r9EAdo7yGiFl9vVI0dHvvSh-9CZ-I9m6e61im" class="img-circle img-responsive">
+
+        <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
+        <% end %>
       </div>
 
 
@@ -36,20 +39,15 @@
               <% end %>
             </div>
           </div>
-
           <div class="col-sm-6">
            <div class="carduser">
              <p><strong center-text>Rental history </strong>
-               <p><strong>Email </strong><></p>
-               <p><strong>Mobile: </strong><</p>
-
+               <p><strong>Email </strong></p>
+               <p><strong>Mobile: </strong></p>
              </div>
            </div>
-
          </div>
-
          <br>
-
        </div>
      </div>
      <div class="container">
@@ -65,5 +63,6 @@
       </span>
     </div>
   </div>
+
 
 

@@ -129,3 +129,23 @@ transform: rotateY(180deg);
   font-size: 11px;
 }
 
+.carousel .item {
+  height: 450px;
+    align-items: center;
+  justify-content: center;
+  background-position: center;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+      justify-content: center;
+  background-position: center;
+}
+
+.carousel-inner h3 p {
+  font-family:'Cabin'
+
+}
