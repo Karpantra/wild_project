@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   user = User.where(provider: auth.provider, uid: auth.uid).first
   user ||= User.where(email: auth.info.email).first # User did a regular sign up in the past.
+
+  user_params[:name] = user_params["first_name"] + " " + user_params["last_name"]
   if user
     user.update(user_params)
   else
