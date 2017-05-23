@@ -8,6 +8,11 @@
   align-items: center;
   justify-content: center;
   background-position: center;
+  // added effects for banner parallax
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .banner h1 {
   font-family:"Cabin";
