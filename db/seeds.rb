@@ -1,25 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
 
 
-html_file = open("http://www.louerunlieu.com/tous-les-lieux")
+html_file = open("http://lieuxatypiques.com/properties-search-results-2/?sort=newest&search_city=&search_lat=&search_lng=&search_type=24&search_min_area=&search_max_area=&search_bedrooms=&search_bathrooms=")
+# p html_file
 html_doc = Nokogiri::HTML(html_file)
 
 products = []
 
-#images
-html_doc.search('.wp2imgpreloader').each do |element|
-  title = element.text
+html_doc.search('a .img').each do |element|
+  user = User.new(name: Faker::Name.first_name, email: Faker::Internet.email, password: "123456")
+  user.save!
+  product = Product.new(address: Faker::Address.street_address, city: Faker::Address.city, description: Faker::Lorem.sentence)
+  product.user = user
+  product.seed_picture = element.attr("style").split("(")[1].split(")")[0]
+  products << product
 end
 
-#titles
-html_doc.search("").each do |element|
-  image = element.text
+html_doc.search("a h2").each_with_index do |element, index|
+  products[index].title = element.text
+  products[index].save!
 end
