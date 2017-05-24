@@ -24,6 +24,18 @@ gem 'coffee-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
+# geocoder
+gem "gmaps4rails"
+gem "geocoder"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+
 # Gemfile
 gem 'cloudinary'
 

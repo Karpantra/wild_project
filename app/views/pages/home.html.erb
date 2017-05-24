@@ -1,17 +1,18 @@
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(0, 36, 40, 0.50) 50%), url('<%= image_path('homepage-picture-2.jpg')%>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.18) 0%, rgba(12, 15, 15, 0.5) 50%), url('<%= image_path('homepage-picture-2.jpg')%>');">
 
 
 
-  <div class="banner-content text-center">
-    <h1>Welcome to The Wild project</h1>
-    <%= link_to "Rent a place", products_path, class:"btn-lg-alt", style:"text-decoration:none" %>
+<div class="banner-content text-center parallax">
+  <h1>Welcome to The Wild project</h1>
+  <%= link_to "Rent a place", products_path, class:"btn-lg-alt", style:"text-decoration:none" %>
   </div>
-  </div>
+</div>
+
 <div class="container text-center">
-<a href="#carousel-example-generic">
-<img class="align-image text-center" src="https://mstxs317jap2jkr871oardiejo-wpengine.netdna-ssl.com/wp-content/uploads/2014/04/down-arrow.png" alt="down-arrow" width="72" height="72">
-</a>
+  <a href="#carousel-example-generic">
+  <img class="align-image text-center" src="https://mstxs317jap2jkr871oardiejo-wpengine.netdna-ssl.com/wp-content/uploads/2014/04/down-arrow.png" alt="down-arrow" width="72" height="72">
+  </a>
 </div>
 <div class="home-first-wrapper">
   <div class="container text-center">
@@ -34,12 +35,12 @@
 
 
 
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <div id="carousel-example-generic" class="carousel slide carousel-top-link" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="0" class="active"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="1"></li>
+      <li data-target=".carousel slide carousel-top-link" data-slide-to="2"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -81,10 +82,14 @@
 
 <div class="homepage-second-wrapper" id="test">
   <div class="container text-center">
-    <h2 class="home-quote">Review de gens</h2>
+    <blockquote>C'était génial !</blockquote>
   </div>
-
 </div>
+
+
+
+
+
 
 <div class="supporting">
    <div class="container">
