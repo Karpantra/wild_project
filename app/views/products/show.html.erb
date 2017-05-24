@@ -1,16 +1,52 @@
-<h2><%= @product.title %></h2>
-<p><%= @product.address %></p>
-<p><%= @product.city %></p>
-<p><%= @product.price %></p>
-<p><%= @product.description %></p>
-<p><%= @product.capacity %></p>
-<% @product.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-<%= link_to "Delete", product_path(@product),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-
-<%= link_to "Go back", products_path %>
 
 
+<div class="container">
+  <div class="row" id="product-info">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h2><%= @product.title %></h2>
+      <p><%= @product.address %></p>
+      <p><%= @product.city %></p>
+      <p><%= @product.price %></p>
+      <p><%= @product.description %></p>
+      <p><%= @product.capacity %></p>
+      <% @product.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+      <%= link_to "Edit your product", edit_product_path(@product), :class => "btn btn-success" %>
+      <%= link_to "Delete", product_path(@product),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, :class => "btn btn-success" %>
+
+      <%= link_to "Go back", products_path, :class => "btn btn-success" %>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+      <div class='col-md-5'>
+          <div class="form-group">
+              <div class='input-group date' id='datetimepicker6'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+      </div>
+      <div class='col-md-5'>
+          <div class="form-group">
+              <div class='input-group date' id='datetimepicker7'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+      </div>
+
+      <%= link_to "Book the place", products_path, :class => "btn btn-success " %>
+  </div>
+</div>
