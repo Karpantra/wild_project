@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :products
   validates :name, presence: true
   validates :email, presence: true
-  validates :description, presence: true
 
   def self.find_for_facebook_oauth(auth)
   user_params = auth.slice(:provider, :uid)
