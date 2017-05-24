@@ -1,0 +1,5 @@
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :check_in, placeholder: "Arrival" %>
+    <%= f.input :check_out, placeholder: "Departure" %>
+    <%= f.submit "Add your product", class: "btn btn-primary" %>
+  <% end %>
