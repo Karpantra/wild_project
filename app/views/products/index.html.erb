@@ -4,7 +4,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-12 col-sm-4">
         <% if product.seed_picture.nil? || product.seed_picture == "" %>
 
 
@@ -19,7 +19,7 @@
              <p><%= product.price %> EUROS</p>
             </div>
           </div>
-        <% else %>
+            <% else %>
 
 
           <div class="card"
@@ -30,19 +30,15 @@
               <h2><%= product.title %></h2>
               <p><%= product.price %> EUROS</p>
             </div>
-          <% end %>
+            <% end %>
+
           </div>
         </div>
         <%= link_to "More details", product_path(product), :class => "btn btn-primary" %>
         <%= link_to "Edit your product", edit_product_path(product), :class => "btn btn-success" %>
     </div>
   </div>
-
-      <% end %>
-  </div>
-
-
-
+<% end %>
 
 
 
