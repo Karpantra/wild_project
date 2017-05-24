@@ -11,7 +11,7 @@ products = []
 html_doc.search('a .img').each do |element|
   user = User.new(name: Faker::Name.first_name, email: Faker::Internet.email, password: "123456")
   user.save!
-  product = Product.new(address: Faker::Address.street_address, city: Faker::Address.city, description: Faker::Lorem.sentence)
+  product = Product.new(address: Faker::Address.street_address, city: Faker::Address.city, description: Faker::Lorem.sentence, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
   product.user = user
   product.seed_picture = element.attr("style").split("(")[1].split(")")[0]
   products << product

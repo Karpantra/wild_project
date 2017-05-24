@@ -1,9 +1,13 @@
 <h1 class="text-center">Products list : </h1>
 <% @products.each do |product| %>
+
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <% if product.seed_picture.nil? || product.seed_picture == "" %>
+
+
           <div class="card"
             <% if product.photos.first %>
               style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
@@ -16,6 +20,8 @@
             </div>
           </div>
             <% else %>
+
+
           <div class="card"
           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
           url('<%= image_path product.seed_picture, width: 300, height: 200, crop: :fill %>')">
@@ -25,6 +31,7 @@
               <p><%= product.price %> EUROS</p>
             </div>
             <% end %>
+
           </div>
         </div>
         <%= link_to "More details", product_path(product), :class => "btn btn-primary" %>
@@ -32,6 +39,9 @@
     </div>
   </div>
 <% end %>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">

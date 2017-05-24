@@ -1,27 +1,35 @@
 
-
 <div class="container">
-  <div class="row" id="product-info">
-    <div class="col-sm-4 col-sm-offset-4">
+  <div class="row">
+    <div class='col-md-5'>
       <h2><%= @product.title %></h2>
-      <p><%= @product.address %></p>
-      <p><%= @product.city %></p>
-      <p><%= @product.price %></p>
-      <p><%= @product.description %></p>
-      <p><%= @product.capacity %></p>
-      <% @product.photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-      <% end %>
-      <%= link_to "Edit your product", edit_product_path(@product), :class => "btn btn-success" %>
+      <p><u>Address</u> :<%= @product.address %></p>
+      <p><u>City </u>:<%= @product.city %></p>
+      <p><u>Price</u> : <%= @product.price %></p>
+      <p><u>Description </u>: <%= @product.description %></p>
+      <p><u>Capacity</u> : <%= @product.capacity %></p>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <div id="picture_display">
+              <% if @product.seed_picture.nil? || @product.seed_picture == "" %>
+                <% @product.photos.each do |photo| %>
+                  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+                <% end %>
+              <% else %>
+                  <%= image_tag @product.seed_picture, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
       <%= link_to "Delete", product_path(@product),
             method: :delete,
-            data: { confirm: "Are you sure?" }, :class => "btn btn-success" %>
+            data: { confirm: "Are you sure?" } %>
 
-      <%= link_to "Go back", products_path, :class => "btn btn-success" %>
-
+      <%= link_to "Go back", products_path %>
     </div>
   </div>
-</div>
 
 
 <div class="container">
