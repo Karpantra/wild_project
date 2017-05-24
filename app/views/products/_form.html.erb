@@ -1,15 +1,16 @@
 <div class="container text-center">
-
-  <%= simple_form_for @product do |f| %>
-    <%= f.input :title, placeholder: "Name" %>
-    <%= f.input :address, placeholder: "Address" %>
-    <%= f.input :city, placeholder: "City" %>
-    <%= f.input :price, placeholder: "Price" %>
-    <%= f.input :description, placeholder: "Tell us a bit about your product" %>
-    <%= f.input :capacity, placeholder: "How people can you " %>
-    <%= f.input :photos, as: :attachinary %>
-    <%= f.submit "Add your product", class: "btn btn-primary" %>
-  <% end %>
+  <div class="col-xs-12 col-md-6 col-offset-3">
+      <%= simple_form_for @product do |f| %>
+        <%= f.input :title, placeholder: "Name" %>
+        <%= f.input :address, placeholder: "Address" %>
+        <%= f.input :city, placeholder: "City" %>
+        <%= f.input :price, placeholder: "Price" %>
+        <%= f.input :description, placeholder: "Tell us a bit about your product" %>
+        <%= f.input :capacity, placeholder: "How many people can you " %>
+        <%= f.input :photos, as: :attachinary %>
+        <%= f.submit "Add your product", class: "btn btn-primary" %>
+      <% end %>
+  </div>
 </div>
 
 <%= content_for(:after_js) do %>
