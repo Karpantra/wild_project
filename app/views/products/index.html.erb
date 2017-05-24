@@ -1,39 +1,61 @@
 <h1 class="text-center">Products list : </h1>
-  <% @products.each do |product| %>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-4">
-          <% if product.seed_picture.nil? || product.seed_picture == "" %>
-            <div class="card"
+<% @products.each do |product| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <% if product.seed_picture.nil? || product.seed_picture == "" %>
+          <div class="card"
+            <% if product.photos.first %>
               style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('<%= cl_image_path product.photos.first.path, height: 300, width: 400, crop: :fill %>')">
-              <div class="card-category"><%= product.city %></div>
-              <div class="card-description">
-                <h2><%= product.title %></h2>
-                <p><%= product.price %> EUROS</p>
-              </div>
-              <a class="card-link" href="#" ></a>
+              url('<%= cl_image_path product.photos.first.path, height: 300, width: 400, crop: :fill %>')">
+            <% end %>
+            <div class="card-category"><%= product.city %></div>
+            <div class="card-description">
+              <h2><%= product.title %></h2>
+             <p><%= product.price %> EUROS</p>
             </div>
-          <% else %>
-            <div class="card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('<%= image_path product.seed_picture, height: 300, width: 400, crop: :fill %>')">
 
-              <div class="card-category"><%= product.city %></div>
-              <div class="card-description">
-                <h2><%= product.title %></h2>
-                <p><%= product.price %> EUROS</p>
-              </div>
-              <a class="card-link" href="#"></a>
+            <a class="card-link" href="#" ></a>
+          </div>
+        <% else %>
+          <div class="card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= image_tag product.seed_picture, width: 300, height: 200, crop: :fill %>')">
+            <div class="card-category"><%= product.city %></div>
+            <div class="card-description">
+              <h2><%= product.title %></h2>
+              <p><%= product.price %> EUROS</p>
             </div>
-          <% end %>
-        </div>
-        <%= link_to "More details", product_path(product), :class => "btn btn-primary" %>
-        <%= link_to "Edit your product", edit_product_path(product), :class => "btn btn-success" %>
+            <a class="card-link" href="#" ></a>
+          </div>
+        <% end %>
       </div>
+      <%= link_to "More details", product_path(product), :class => "btn btn-primary" %>
+      <%= link_to "Edit your product", edit_product_path(product), :class => "btn btn-success" %>
     </div>
-  <% end %>
-
-
-
-
+  </div>
+<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div id="map" style="width: 50%; height: 300px;"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+           $(document).ready(function() {
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+            });
+          });
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

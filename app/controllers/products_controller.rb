@@ -1,7 +1,13 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@products) do |product, marker|
+      marker.lat product.latitude
+      marker.lng product.longitude
+      # marker.infowindow render_to_string(partial: "/products/map_box", locals: { product: product })
+    end
+    # raise
   end
 
   def show
@@ -46,6 +52,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:address, :city, :title, :price, :description, :capacity, photos: [])
+    params.require(:product).permit(:address, :city, :title, :price, :description, :capacity, :latitude, :longitude, photos: [])
   end
 end
