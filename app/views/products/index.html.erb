@@ -1,6 +1,7 @@
 <h1 class="text-center">Products list : </h1>
-<div class="container">
-  <% @products.each do |product| %>
+
+<% @products.each do |product| %>
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <% if product.seed_picture.nil? || product.seed_picture == "" %>
@@ -15,6 +16,7 @@
                 <p><%= product.price %> EUROS</p>
               </div>
           </div>
+
         <% else %>
             <div class="card"
             style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
