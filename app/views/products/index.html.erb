@@ -14,7 +14,6 @@
               <h2><%= product.title %></h2>
              <p><%= product.price %> EUROS</p>
             </div>
-
             <a class="card-link" href="#" ></a>
           </div>
         <% else %>
@@ -27,19 +26,15 @@
               <p><%= product.price %> EUROS</p>
             </div>
           <% end %>
-        </div>
-
-
+          </div>
             <a class="card-link" href="#" ></a>
           </div>
-        <% end %>
 
-      </div>
       <%= link_to "More details", product_path(product), :class => "btn btn-primary" %>
       <%= link_to "Edit your product", edit_product_path(product), :class => "btn btn-success" %>
+      <% end %>
     </div>
-  </div>
-<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
