@@ -45,8 +45,9 @@ height: 70px;
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: white;
+  font-size: 18px;
+  font-weight:normal
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -61,7 +62,7 @@ height: 70px;
   line-height: 40px;
   background-color: #D23333;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   border: 2px solid #D23333;
 }
 .navbar-wagon-button:hover {
@@ -140,12 +141,4 @@ height: 70px;
 .btn-success {
   border: white 2px;
 }
-
-
-
-
-
-
-
-
 
