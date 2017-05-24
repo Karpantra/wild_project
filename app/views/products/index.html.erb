@@ -7,37 +7,32 @@
         <% if product.seed_picture.nil? || product.seed_picture == "" %>
           <div class="card"
             <% if product.photos.first %>
-              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-              url('<%= cl_image_path product.photos.first.path, width: 300, height: 200, crop: :fill %>')">
-            <% end %>
-            <div class="card-category"><%= product.city %></div>
-            <div class="card-description">
-              <h2><%= product.title %></h2>
-             <p><%= product.price %> EUROS</p>
-            </div>
+                style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                url('<%= cl_image_path product.photos.first.path, width: 300, height: 200, crop: :fill %>')">
+              <% end %>
+              <div class="card-category"><%= product.city %></div>
+              <div class="card-description">
+                <h2><%= product.title %></h2>
+                <p><%= product.price %> EUROS</p>
+              </div>
           </div>
-            <% else %>
 
-          <div class="card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= image_path product.seed_picture, width: 300, height: 200, crop: :fill %>')">
-            <div class="card-category"><%= product.city %></div>
-            <div class="card-description">
-              <h2><%= product.title %></h2>
-              <p><%= product.price %> EUROS</p>
+        <% else %>
+            <div class="card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= image_path product.seed_picture, width: 300, height: 200, crop: :fill %>')">
+              <div class="card-category"><%= product.city %></div>
+              <div class="card-description">
+                <h2><%= product.title %></h2>
+                <p><%= product.price %> EUROS</p>
+              </div>
             </div>
-            <% end %>
-          </div>
+          <% end %>
         </div>
         <%= link_to "More details", product_path(product), :class => "btn btn-primary" %>
         <%= link_to "Edit your product", edit_product_path(product), :class => "btn btn-success" %>
     </div>
-  </div>
-<% end %>
-
-
-
-<div class="container">
+  <% end %>
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div id="map" style="width: 50%; height: 300px;"></div>
@@ -61,3 +56,7 @@
     </div>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAe4PVk38pNIO3t77HZnIT6f_8b_k30BCs"></script>
+<% end %>
