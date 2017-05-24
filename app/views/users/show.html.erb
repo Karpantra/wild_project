@@ -1,50 +1,47 @@
 
 <div class="panel">
   <div class="panel-heading">
-    <h3 class="panel-title col-md-9"><%= @user.name.capitalize %>s'profile </h3>
+    <h3 class="panel-title col-md-12"><%= @user.name.capitalize %>s'profile </h3>
   </div>
   <br>
 
-  <div class="panel-body">
+  <div>
     <div class="row">
-      <div class="col-md-3 col-lg-3 " align="center">
+      <div class="col-md-3">
+        <div class="card-profil">
+          <% if @user.photo? %>
+              <%= cl_image_tag @user.photo.path, width: 180, height: 200, crop: :fill %>
+            <% end %>
+          <div class="container-profil">
+            <h1><%= @user.name.capitalize %></h1>
+            <p class="title-profil"><%= @user.email %></p>
+            <p><%= @user.description %></p>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <p><button><%= @user.phone_number %></button></p>
+          </div>
+        </div>
 
-        <% if @user.photo? %>
-        <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
-        <% end %>
-      </div>
 
 
-      <div class="col-md-6 block-page">
+      <div class="col-md-9 block-page">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="carduser">
-              <p><strong>Name: </strong><%= @user.name.capitalize %></p>
-              <p><strong>Email </strong><%= @user.email %></p>
-              <p><strong>Mobile: </strong><%= @user.phone_number %></p>
-              <% if @user.description == "" %>
-              <p>You do not have wrote about you and your project</p>
-              <% else %>
-              <p><strong>Description: </strong><%= @user.description %></p>
-              <% end %>
-              <br>
-              <br>
-              <br>
-              <%= simple_form_for @user do |f| %>
-              <%= f.input :description, placeholder: "Write about yourself and what y ou are looking for :)" %>
-              <br>
-              <%= f.button :submit, class: "btn btn-success" do %>
-              <i class='glyphicon glyphicon-edit'></i> edit description
-              <% end %>
-              <% end %>
+            <p><strong center-text>Confirmed bookings</strong></p>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-4">
            <div class="carduser">
-             <p><strong center-text>Rental history </strong>
-               <p><strong>Email </strong></p>
-               <p><strong>Mobile: </strong></p>
+             <p><strong center-text>Pending bookings</strong>
              </div>
+           </div>
+           <div class="col-sm-4">
+             <div class="carduser">
+               <p><strong center-text>Confirmed bookings</strong></p>
+            </div>
            </div>
          </div>
          <br>
