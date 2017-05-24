@@ -15,12 +15,25 @@
 
 //smooth effect for homepage link image
 
-$('a[href^="#carousel-example-generic"]').click(function(){
-  var the_id = $(this).attr("href");
-  var speed = 850;
-  $('html, body').animate({
-    scrollTop:$(the_id).offset().top
-  }, speed);
-  return false;
-});
-
+// $('a[href^="#carousel-example-generic"]').click(function(){
+//   var the_id = $(this).attr("href");
+//   var speed = 850;
+//   $('html, body').animate({
+//     scrollTop:$(the_id).offset().top
+//   }, speed);
+//   return false;
+// });
+// $(function() {
+//   $('a[href^="#carousel-example-generic"').click(function() {
+//     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+//       var target = $(this.hash);
+//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+//       if (target.length) {
+//         $('html,body').animate({
+//           scrollTop: target.offset().top
+//         }, 800);
+//         return false;
+//       }
+//     }
+//   });
+// });
