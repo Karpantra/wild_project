@@ -1,65 +1,70 @@
-
-<div class="panel">
-  <div class="panel-heading">
-    <h3 class="panel-title col-md-12"><%= @user.name.capitalize %>s'profile </h3>
-  </div>
-  <br>
-
-  <div>
-    <div class="row">
-      <div class="col-md-3">
-        <div class="card-profil">
-          <% if @user.photo? %>
-              <%= cl_image_tag @user.photo.path, width: 180, height: 200, crop: :fill %>
+<div class="profile-header-wrapper">
+  <div class="container profile-header-container text-center">
+    <div class="profile-header-infos">
+    <% if @user.photo? %>
+              <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :thumb, radius: :max %>
             <% end %>
-          <div class="container-profil">
-            <h1><%= @user.name.capitalize %></h1>
-            <p class="title-profil"><%= @user.email %></p>
-            <p><%= @user.description %></p>
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <p><button><%= @user.phone_number %></button></p>
-          </div>
-        </div>
-
-
-
-      <div class="col-md-9 block-page">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="carduser">
-            <p><strong center-text>Confirmed bookings</strong></p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-           <div class="carduser">
-             <p><strong center-text>Pending bookings</strong>
-             </div>
-           </div>
-           <div class="col-sm-4">
-             <div class="carduser">
-               <p><strong center-text>Confirmed bookings</strong></p>
-            </div>
-           </div>
-         </div>
-         <br>
-       </div>
-     </div>
-     <div class="container">
-      <a href="#" class="btn btn-primary">My reviews</a>
-      <a href="#" class="btn btn-primary">My flats</a>
+      <!-- <img src="images/papillard.jpeg" alt=""> -->
+      <h1><%= @user.name.capitalize %></h1>
+      <h2><%= @user.email %></h2>
+      <p><%= @user.phone_number %></p>
     </div>
-    <br>
-    <div class="panel-footer">
-      <a data-original-title="Messenger" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-      <span class="pull-right">
-        <a href="edit.html" data-original-title="Edit profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i> </a>
-      </span>
+    <div class="tabs">
+      <a class="tab active" data-target="#bio">
+        <h3>Confirmed bookings</h3>
+      </a>
+      <a class="tab" data-target="#projects">
+        <h3>Pending bookings</h3>
+      </a>
+      <a class="tab" data-target="#contact">
+        <h3>Last bookings</h3>
+      </a>
     </div>
   </div>
+</div>
+
+<div class="container">
+  <div class="tab-content" id="bio">
+    <div class="product">
+      <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <div class='product-body'>
+        <h3>Booking 1</h3>
+        <p>Description du produit + prix + date + ...</p>
+      </div>
+      <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-trash"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content hidden" id="projects">
+   <div class="product">
+     <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+     <div class='product-body'>
+       <h3>Booking 1</h3>
+       <p>Description du produit + prix + date + ...</p>
+     </div>
+     <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+       <li><a href=""><i class="fa fa-trash"></i></a></li>
+     </ul>
+   </div>
+  </div>
+  <div class="tab-content hidden" id="contact">
+    <div class="product">
+      <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <div class='product-body'>
+        <h3>Booking 1</h3>
+        <p>Description du produit + prix + date + ...</p>
+      </div>
+      <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-trash"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
