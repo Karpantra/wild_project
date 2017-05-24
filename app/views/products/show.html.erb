@@ -1,16 +1,56 @@
-<h2><%= @product.title %></h2>
-<p><%= @product.address %></p>
-<p><%= @product.city %></p>
-<p><%= @product.price %></p>
-<p><%= @product.description %></p>
-<p><%= @product.capacity %></p>
-<% @product.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-<%= link_to "Delete", product_path(@product),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+<div class="container">
+  <div class="row">
+    <div class='col-md-5'>
+      <h2><%= @product.title %></h2>
+      <p><bold>Address : </bold><%= @product.address %></p>
+      <p>City :<%= @product.city %></p>
+      <p>Price : <%= @product.price %></p>
+      <p>Description : <%= @product.description %></p>
+      <p>Capacity : <%= @product.capacity %></p>
+      <% @product.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
+      <%= link_to "Delete", product_path(@product),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
 
-<%= link_to "Go back", products_path %>
-
-
+      <%= link_to "Go back", products_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
