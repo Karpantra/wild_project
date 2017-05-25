@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20170524084131) do
     t.date     "check_in"
     t.date     "check_out"
     t.integer  "user_id"
-    t.integer  "product_id"
+    t.integer  "asset_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_bookings_on_product_id", using: :btree
+    t.index ["asset_id"], name: "index_bookings_on_asset_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
