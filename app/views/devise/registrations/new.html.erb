@@ -1,29 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <h2>Sign up</h2>
+<div class="account-container">
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
+  <div class="content clearfix">
 
-      <div class="form-inputs">
-        <%= f.input :name %>
-        <%= f.input :phone_number %>
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true %>
+    <form action="#" method="post">
+
+      <h3>Become a Wild Member</h3>
+        <br>
+      <div class="login-fields">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :name, class: "login username-field", placeholder: "name" %>
+          <%= f.input :phone_number, class: "login username-field", placeholder: "06 01 02 03 04" %>
+          <%= f.input :email, required: true, autofocus: true, class: "login username-field", placeholder: "email" %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), class: "login username-field", placeholder: "password" %>
+          <%= f.input :password_confirmation, required: true, class: "login username-field", placeholder: "password confirmation" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :photo, as: :attachinary %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: "button btn btn-success btn-large" %>
+          <br>
+          <br>
+        </div>
+        <% end %>
       </div>
-
-      <div class="form-inputs">
-        <%= f.input :photo, as: :attachinary %>
-      </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
-      <% end %>
-
+    </form>
+      <br>
+      <div class="col-sm-4 col-sm-offset-4 text-left">
       <%= render "devise/shared/links" %>
-    </div>
+      </div>
+      <br>
   </div>
 </div>
+<br>
+<br>
+<br>
