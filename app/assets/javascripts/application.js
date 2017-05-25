@@ -1,14 +1,14 @@
+//= require moment
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
+//= require bootstrap-datepicker
+//= require bootstrap-datetimepicker
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 
-//= require moment
-//= require bootstrap-datetimepicker
 
 //= require underscore
 //= require gmaps/google
-
+//= require_tree .
