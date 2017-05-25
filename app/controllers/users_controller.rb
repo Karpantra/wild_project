@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @pending_bookings = current_user.bookings.where(status: 'pending')
   end
 
   def update

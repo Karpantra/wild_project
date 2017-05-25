@@ -9,13 +9,13 @@
       <p><%= @user.phone_number %></p>
     </div>
     <div class="tabs">
-      <a class="tab active" data-target="#bio">
-        <h3>Confirmed bookings</h3>
-      </a>
-      <a class="tab" data-target="#projects">
+      <a class="tab active" data-target="#pending">
         <h3>Pending bookings</h3>
       </a>
-      <a class="tab" data-target="#contact">
+      <a class="tab" data-target="#confirmed">
+        <h3>Confirmed bookings</h3>
+      </a>
+      <a class="tab" data-target="#last">
         <h3>Last bookings</h3>
       </a>
     </div>
@@ -24,21 +24,13 @@
 
 
 <div class="container">
-  <div class="tab-content" id="bio">
-    <div class="product">
-      <% if @user.photo? %>
-        <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
-      <% end %>
-      <div class='product-body'>
-        <h3>Booking 1</h3>
-        <p>Description du produit + prix + date + ...</p>
-      </div>
-      <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-        <li><a href=""><i class="fa fa-trash"></i></a></li>
-      </ul>
-    </div>
+  <div class="tab-content" id="pending">
+    <% @pending_bookings.each do |b| %>
+      <%= render 'booking', booking: b %>
+    <% end %>
+
   </div>
-  <div class="tab-content hidden" id="projects">
+  <div class="tab-content hidden" id="confirmed">
    <div class="product">
     <% if @user.photo? %>
             <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
@@ -52,7 +44,7 @@
      </ul>
    </div>
   </div>
-  <div class="tab-content hidden" id="contact">
+  <div class="tab-content hidden" id="last">
     <div class="product">
       <% if @user.photo? %>
         <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
@@ -67,6 +59,7 @@
     </div>
   </div>
 </div>
+
 
 
 
