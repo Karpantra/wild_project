@@ -4,7 +4,6 @@
     <% if @user.photo? %>
               <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :thumb, radius: :max %>
             <% end %>
-      <!-- <img src="images/papillard.jpeg" alt=""> -->
       <h1><%= @user.name.capitalize %></h1>
       <h2><%= @user.email %></h2>
       <p><%= @user.phone_number %></p>
@@ -27,7 +26,9 @@
 <div class="container">
   <div class="tab-content" id="bio">
     <div class="product">
-      <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <% end %>
       <div class='product-body'>
         <h3>Booking 1</h3>
         <p>Description du produit + prix + date + ...</p>
@@ -40,7 +41,9 @@
   </div>
   <div class="tab-content hidden" id="projects">
    <div class="product">
-     <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+    <% if @user.photo? %>
+            <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+          <% end %>
      <div class='product-body'>
        <h3>Booking 2</h3>
        <p>Description du produit + prix + date + ...</p>
@@ -52,7 +55,9 @@
   </div>
   <div class="tab-content hidden" id="contact">
     <div class="product">
-      <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <% end %>
       <div class='product-body'>
         <h3>Booking 3</h3>
         <p>Description du produit + prix + date + ...</p>
