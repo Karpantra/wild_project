@@ -1,13 +1,24 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@products) do |product, marker|
-      marker.lat product.latitude
-      marker.lng product.longitude
+    search = params[:product][:search]
+    if search.to_s.size > 0
+      #raise
+      @products= Product.near(search, 10).where.not(latitude: nil, longitude: nil)
+         @hash = Gmaps4rails.build_markers(@products) do |product, marker|
+         marker.lat product.latitude
+         marker.lng product.longitude
+    #   filter product where city = search
+      end
+    else
+      @products = Product.where.not(latitude: nil, longitude: nil)
+      @hash = Gmaps4rails.build_markers(@products) do |product, marker|
+        marker.lat product.latitude
+        marker.lng product.longitude
       # marker.infowindow render_to_string(partial: "/products/map_box", locals: { product: product })
-    end
+      end
     # raise
+    end
   end
 
   def show
@@ -56,3 +67,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:address, :city, :title, :price, :description, :capacity, :category, :latitude, :longitude, photos: [])
   end
 end
+
