@@ -1,0 +1,6 @@
+
+<%= simple_form_for([product, review]) do |form| %>
+  <%= form.input :content, as: :text, placeholder:"Our renters love to hear you ! Tell them how much you liked their places !" %>
+  <%= form.input :rating, collection: 0..5 %>
+  <%= form.submit class: "btn btn-primary " %>
+<% end %>

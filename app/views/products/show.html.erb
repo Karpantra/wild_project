@@ -27,6 +27,10 @@
         <%=  f.submit "Book the place", class: "btn btn-primary"%>
       <% end %>
     </div>
+    <%= render 'reviews/form', product: @product, review: @review %>
+    <% @reviews.each do |review|%>
+      <%= review.content %>
+    <% end %>
   </div>
 </div>
 
