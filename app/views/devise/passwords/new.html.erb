@@ -1,13 +1,15 @@
+<br>
+<br>
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-      <h2>Forgot your password?</h2>
+      <h3>Forgot your password?</h3>
 
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :email, required: true, autofocus: true, placeholder: "email" %>
       </div>
 
       <div class="form-actions">
@@ -15,7 +17,22 @@
       </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
     </div>
+
   </div>
+
+  <div class="col-sm-4 col-sm-offset-4 ajust-adroite">
+
+  <br>
+
+   <%= render "devise/shared/links" %>
+
+  </div>
+
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>

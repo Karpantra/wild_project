@@ -1,5 +1,3 @@
-<div class="container center-text ">
-<div class="col-xs-8 col-md-push-2">
   <%= simple_form_for @product do |f| %>
     <%= f.input :title, placeholder: "Name" %>
     <%= f.input :address, placeholder: "Address" %>
@@ -11,8 +9,8 @@
     <%= f.input :photos, as: :attachinary %>
     <%= f.submit "Add your product", class: "btn btn-primary" %>
   <% end %>
-</div>
-</div>
+
+
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyAe4PVk38pNIO3t77HZnIT6f_8b_k30BCs"></script>

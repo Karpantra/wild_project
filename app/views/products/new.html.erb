@@ -1,6 +1,12 @@
-<h3 class="text-center">Let's create your product ! </h3>
+<div class="account-container center-text">
+ <div class="content clearfix">
+  <h3>Let's create your product ! </h3>
+  <div class="col-xs-12">
+     <%= render 'form' %>
+     <br>
+    <%= link_to "Go back ", products_path(current_user), :class => "btn btn-danger" %>
+    </div>
+  </div>
+</div>
 <br>
 <br>
-<%= render 'form' %>
-
-<%= link_to "Go back ", products_path(current_user), :class => "btn btn-danger" %>
