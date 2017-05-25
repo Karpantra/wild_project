@@ -22,6 +22,10 @@ gem 'omniauth-facebook'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 
+
+gem "letter_opener", group: :development
+
+
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'momentjs-rails', '>= 2.9.0'
