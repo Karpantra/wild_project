@@ -1,70 +1,71 @@
-
-<div class="panel">
-  <div class="panel-heading">
-    <h3 class="panel-title col-md-9"><%= @user.name.capitalize %>s'profile </h3>
+<div class="profile-header-wrapper">
+  <div class="container profile-header-container text-center">
+    <div class="profile-header-infos">
+    <% if @user.photo? %>
+              <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :thumb, radius: :max %>
+            <% end %>
+      <!-- <img src="images/papillard.jpeg" alt=""> -->
+      <h1><%= @user.name.capitalize %></h1>
+      <h2><%= @user.email %></h2>
+      <p><%= @user.phone_number %></p>
+    </div>
+    <div class="tabs">
+      <a class="tab active" data-target="#bio">
+        <h3>Confirmed bookings</h3>
+      </a>
+      <a class="tab" data-target="#projects">
+        <h3>Pending bookings</h3>
+      </a>
+      <a class="tab" data-target="#contact">
+        <h3>Last bookings</h3>
+      </a>
+    </div>
   </div>
-  <br>
+</div>
 
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-3 col-lg-3 " align="center">
 
-        <% if @user.photo? %>
-          <%= cl_image_tag @user.photo.path, width: 200, height: 300, crop: :fill %>
-        <% else %>
-            <%= image_tag @current_user.facebook_picture_url, height: 300, width: 250, crop: :fill %>
-        <% end %>
+<div class="container">
+  <div class="tab-content" id="bio">
+    <div class="product">
+      <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <div class='product-body'>
+        <h3>Booking 1</h3>
+        <p>Description du produit + prix + date + ...</p>
       </div>
-
-
-      <div class="col-md-6 block-page">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="carduser">
-              <p><strong>Name: </strong><%= @user.name.capitalize %></p>
-              <p><strong>Email </strong><%= @user.email %></p>
-              <p><strong>Mobile: </strong><%= @user.phone_number %></p>
-              <% if @user.description == "" %>
-              <p>You do not have wrote about you and your project</p>
-              <% else %>
-              <p><strong>Description: </strong><%= @user.description %></p>
-              <% end %>
-              <br>
-              <br>
-              <br>
-              <%= simple_form_for @user do |f| %>
-              <%= f.input :description, placeholder: "Write about yourself and what y ou are looking for :)" %>
-              <br>
-              <%= f.button :submit, class: "btn btn-success" do %>
-              <i class='glyphicon glyphicon-edit'></i> edit description
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-           <div class="carduser">
-             <p><strong center-text>Rental history </strong>
-               <p><strong>Email </strong></p>
-               <p><strong>Mobile: </strong></p>
-             </div>
-           </div>
-         </div>
-         <br>
-       </div>
-     </div>
-     <div class="container">
-      <a href="#" class="btn btn-primary">My reviews</a>
-      <a href="#" class="btn btn-primary">My flats</a>
-    </div>
-    <br>
-    <div class="panel-footer">
-      <a data-original-title="Messenger" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-      <span class="pull-right">
-        <a href="edit.html" data-original-title="Edit profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i> </a>
-      </span>
+      <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-trash"></i></a></li>
+      </ul>
     </div>
   </div>
+  <div class="tab-content hidden" id="projects">
+   <div class="product">
+     <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+     <div class='product-body'>
+       <h3>Booking 2</h3>
+       <p>Description du produit + prix + date + ...</p>
+     </div>
+     <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+       <li><a href=""><i class="fa fa-trash"></i></a></li>
+     </ul>
+   </div>
+  </div>
+  <div class="tab-content hidden" id="contact">
+    <div class="product">
+      <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+      <div class='product-body'>
+        <h3>Booking 3</h3>
+        <p>Description du produit + prix + date + ...</p>
+      </div>
+      <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
+        <li><a href=""><i class="fa fa-trash"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
