@@ -1,11 +1,9 @@
- <div class="product">
-  <% if booking.product.photos? %>
-    <% booking.product.photos.each do |photo| %>
-    <%= cl_image_tag photo.path, class: "product-image hidden-xs"%>
+<div class="product">
+    <% booking.products do |product| %>
+      <% product.photos do |photo| %>
+        <%= cl_image_tag photo.path, class: "product-image hidden-xs" %>
+      <% end %>
     <% end %>
-    <% else %>
-    <%= image_tag booking.product.seed_picture, class: "product-image hidden-xs" %>
-  <% end %>
   <div class='product-body'>
     <h3><%= booking.product.title %></h3>
     <p>From <strong><%= booking.check_in %></strong> to <strong><%= booking.check_out %></strong></p>

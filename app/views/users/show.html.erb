@@ -18,6 +18,9 @@
       <a class="tab" data-target="#last">
         <h3>Last bookings</h3>
       </a>
+      <a class="tab" data-target="#validation">
+        <h3>On going demands</h3>
+      </a>
     </div>
   </div>
 </div>
@@ -25,38 +28,26 @@
 
 <div class="container">
   <div class="tab-content" id="pending">
-    <% @pending_bookings.each do |b| %>
-      <%= render 'booking', booking: b %>
+    <% @pending_bookings.each do |pending| %>
+      <%= render 'booking', booking: pending %>
     <% end %>
-
   </div>
   <div class="tab-content hidden" id="confirmed">
-   <div class="product">
-    <% if @user.photo? %>
-            <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
-          <% end %>
-     <div class='product-body'>
-       <h3>Booking 2</h3>
-       <p>Description du produit + prix + date + ...</p>
-     </div>
-     <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-       <li><a href=""><i class="fa fa-trash"></i></a></li>
-     </ul>
-   </div>
+   <% @confirmed_bookings.each do |confirmed| %>
+      <%= render 'booking', booking: confirmed %>
+    <% end %>
   </div>
   <div class="tab-content hidden" id="last">
-    <div class="product">
-      <% if @user.photo? %>
-        <%= cl_image_tag @user.photo.path, class: "product-image hidden-xs"%>
+    <% @last_bookings.each do |last| %>
+      <%= render 'booking', booking: last %>
+    <% end %>
+  </div>
+  <div class="tab-content hidden" id="validation">
+    <% unless @booking_to_confirm == [] %>
+      <% @booking_to_confirm.each do |b| %>
+        <%= render 'confirmation', booking: b %>
       <% end %>
-      <div class='product-body'>
-        <h3>Booking 3</h3>
-        <p>Description du produit + prix + date + ...</p>
-      </div>
-      <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-        <li><a href=""><i class="fa fa-trash"></i></a></li>
-      </ul>
-    </div>
+    <% end %>
   </div>
 </div>
 
