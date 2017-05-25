@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create :send_welcome_email
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
@@ -29,9 +31,16 @@ class User < ApplicationRecord
     user = User.new(user_params)
     user.password = Devise.friendly_token[0,20]  # Fake password for validation
     user.save
+
   end
 
   return user
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 
 end
