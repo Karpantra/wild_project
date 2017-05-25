@@ -6,12 +6,13 @@ html_file = open("http://lieuxatypiques.com/properties-search-results-2/?sort=ne
 # p html_file
 html_doc = Nokogiri::HTML(html_file)
 
+Product.destroy_all
 products = []
 
 html_doc.search('a .img').each do |element|
   user = User.new(name: Faker::Name.first_name, email: Faker::Internet.email, password: "123456")
   user.save!
-  product = Product.new(address: Faker::Address.street_address, city: Faker::Address.city, description: Faker::Lorem.sentence, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+  product = Product.new(address: Faker::Address.street_address, city: Faker::Address.city, description: Faker::Lorem.sentence, latitude: Faker::Address.latitude, longitude: Faker::Address.longitude, price: rand(10...30))
   product.user = user
   product.seed_picture = element.attr("style").split("(")[1].split(")")[0]
   products << product
