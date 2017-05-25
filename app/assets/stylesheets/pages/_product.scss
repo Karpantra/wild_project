@@ -2,10 +2,26 @@
   color: #FFFFFF;
 }
 
-.mappy {
-  position: relative;
-}
+
 #map {
 position: fixed;
 border: 2px black;
+}
+
+.mappy {
+  margin-right: -20px;
+
+}
+
+h1 {
+    font-family: "Cabin";
+    font-size: 50px;
+    font-weight: normal;
+    // text-shadow: 0px 1px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+}
+
+
+.container text-center col-xs-12 col-md-8 {
+  position: relative
 }

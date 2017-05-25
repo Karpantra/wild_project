@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170525163742) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,10 +44,10 @@ ActiveRecord::Schema.define(version: 20170525163742) do
     t.date     "check_in"
     t.date     "check_out"
     t.integer  "user_id"
-    t.integer  "asset_id"
+    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asset_id"], name: "index_bookings_on_asset_id", using: :btree
+    t.index ["product_id"], name: "index_bookings_on_product_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170525163742) do
     t.string   "seed_picture"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "category"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
@@ -134,7 +136,7 @@ ActiveRecord::Schema.define(version: 20170525163742) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "bookings", "products", column: "asset_id"
+  add_foreign_key "bookings", "products", column: "product_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "products"

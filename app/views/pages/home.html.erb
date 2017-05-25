@@ -6,7 +6,14 @@
 <div class="banner-content text-center parallax">
   <h1>Amazing places finder</h1>
   <p>Find amazing places for your your movies, photo shooting or events</p>
-  <%= link_to "Rent a place", products_path, class:"btn-lg-alt", style:"text-decoration:none" %>
+
+  <%= simple_form_for :product, :method => 'get',
+      :html => { :class => 'form-search' }, url: products_path do |f| %>
+    <%= f.input_field :search, placeholder: "city",
+        class: "input-medium search-query" %>
+    <%= f.submit "Find a place!", class: "btn btn-primary", style:"text-decoration:none" %>
+  <% end %>
+
   </div>
 </div>
 
@@ -129,9 +136,53 @@
         </div>
       </div>
     </div>
-
-
 </div>
+
+
+
+
+<!--
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-6">
+      <h1>Franchement ? Stylé !</h1>
+            <div class="testimonial-quote group">
+                <img src="http://placehold.it/120x120">
+                <div class="quote-container">
+                    <blockquote>
+                        <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
+                    </blockquote>
+                    <cite><span>Gautier</span>
+                    </cite>
+                </div>
+            </div>
+        </div>
+
+
+
+      <div class="col-xs-12 col-sm-6">
+            <h1>Franchement ? Stylé !</h1>
+                  <div class="testimonial-quote group">
+                      <img src="http://placehold.it/120x120">
+                      <div class="quote-container">
+                          <blockquote>
+                              <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
+                          </blockquote>
+                          <cite><span>Gautier</span>
+                          </cite>
+                      </div>
+                  </div>
+        </div>
+  </div>
+</div>
+
+ -->
+
+
+
+
+
 
 
 <div class="supporting">
