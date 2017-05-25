@@ -30,6 +30,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 # geocoder
 gem "gmaps4rails"
 gem "geocoder"
+gem 'magnific-popup-rails', '~> 1.1.0'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
