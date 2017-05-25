@@ -40,13 +40,13 @@ body{ background: url(../../img/body-bg.png); color:#838383; font: 13px/1.7em 'O
 .login-fields input {
   font-family: 'Open Sans';
   font-size: 13px;
-  color: #8e8d8d;
-  // padding: 11px 15px 10px 50px;
-  background-color: #fdfdfd;
-  width: 255px;
+//   color: #8e8d8d;
+//   // padding: 11px 15px 10px 50px;
+//   background-color: #fdfdfd;
+  width: 375px;
   display: block;
-  margin: 0;
-  box-shadow: inset 2px 2px 4px #f1f1f1;
+//   margin: 0;
+//   box-shadow: inset 2px 2px 4px #f1f1f1;
 }
 
 .username-field { background: url(../../img/signin/user.png) no-repeat; }
@@ -166,16 +166,17 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 
 }
 
-.twitter, .fb {
+
+
+
+.button {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   display: inline-block;
+  float: right;
+  margin-top: 18px;
 }
-
-.twitter a:hover, .fb a:hover {
-  color: #FFF;
-  text-decoration: none;
-}
-
-.button {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; display: inline-block; float: right; margin-top: 18px;}
 
 
 
@@ -241,56 +242,6 @@ span.login-checkbox > input[type='checkbox']:checked + label {
   }
 
 }
-// topbar
-.topbar .container {
-  position: relative;
-}
-
-.topbar-inner {
-  padding: 7px 0;
-
-  background: #00ba8b !important;
-
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.topbar-fixed-top {
-  position: static;
-}
-
-.topbar .top a {
-  font-size: 11px;
-}
-.topbar .top>li>a { color:#fff !important;}
-.topbar .brand {
-  font-weight: 600;
-  position: relative;
-  top: 2px;
-}
-
-.topbar .search-query {
-  background-color: #444;
-  width: 150px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.topbar .search-query::-webkit-input-placeholder {
-    color: #666;
-}
-
-.topbar .search-query:-moz-placeholder {
-    color: #666;
-}
-
-.topbar-search .search-query {
-  background:#008866;
-  border:0;
-  color:#fff;
-  line-height:normal;
-}
 
 .links_appear {
   position:relative;
@@ -302,3 +253,10 @@ span.login-checkbox > input[type='checkbox']:checked + label {
   position: relative;
   left: 10px;
 }
+
+.render {
+  position: relative;
+  left: -368px;
+}
+
+
