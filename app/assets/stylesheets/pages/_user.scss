@@ -33,13 +33,11 @@
 }
 
 .panel-title {
-  background-color: #2381D0;
-  color: white;
-
+  color: black;
   font: sans-serif, bold, 20px, blue;
-  border-radius: 5px;
   padding: 3px;
   height: 25px;
+  border-bottom: 1px solid black;
 
 }
 
@@ -47,10 +45,12 @@
   background-color: rgba(300,300,300, 0.5);
   border-radius: 5px;
   padding: 10px;
+  max-height: 400px;
+  min-height: 400px;
 }
 .panel {
   background-color: rgba(200,200,200, 0.5);
-  padding-left: 50px;
+  padding-left: 0px;
 }
 .input {
   background-color: red;

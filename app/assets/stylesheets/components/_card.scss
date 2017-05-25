@@ -4,7 +4,8 @@
   background-size: cover !important;
   color: white;
   position: relative;
-  border: 2px solid black
+
+  margin: 10px
 }
 .card-user {
   position: absolute;
@@ -38,9 +39,50 @@
   z-index:2;
   background: black;
   opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
 .card-link:hover{
-  opacity: 0.1;
+  opacity: 0.2;
+}
+
+.card-profil {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    position: absolute;
+}
+
+.container-profil {
+    padding: 0 16px;
+}
+
+.title-profil {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover, a:hover {
+    opacity: 0.7;
 }
 
 

@@ -1,6 +1,3 @@
-
-
-
   <%= simple_form_for @product do |f| %>
     <%= f.input :title, placeholder: "Name" %>
     <%= f.input :address, placeholder: "Address" %>
@@ -8,6 +5,7 @@
     <%= f.input :price, placeholder: "Price" %>
     <%= f.input :description, placeholder: "Tell us a bit about your product" %>
     <%= f.input :capacity, placeholder: "How people can you " %>
+    <%= f.input :category, placeholder: "How would you define your place ?" %>
     <%= f.input :photos, as: :attachinary %>
     <%= f.submit "Add your product", class: "btn btn-primary" %>
   <% end %>
