@@ -13,3 +13,5 @@
 //= require gmaps/google
 //= require_tree .
 //= require magnific-popup
+//= require jquery.raty
+//= require ratyrate

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525134434) do
+ActiveRecord::Schema.define(version: 20170525163742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20170525134434) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+  create_table "average_caches", force: :cascade do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "avg",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.date     "check_in"
     t.date     "check_out"
@@ -39,6 +48,14 @@ ActiveRecord::Schema.define(version: 20170525134434) do
     t.datetime "updated_at", null: false
     t.index ["asset_id"], name: "index_bookings_on_asset_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "overall_averages", force: :cascade do |t|
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "overall_avg",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: :cascade do |t|
@@ -55,6 +72,29 @@ ActiveRecord::Schema.define(version: 20170525134434) do
     t.float    "latitude"
     t.float    "longitude"
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
+  end
+
+  create_table "rates", force: :cascade do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "stars",         null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
+    t.index ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+  end
+
+  create_table "rating_caches", force: :cascade do |t|
+    t.string   "cacheable_type"
+    t.integer  "cacheable_id"
+    t.float    "avg",            null: false
+    t.integer  "qty",            null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|

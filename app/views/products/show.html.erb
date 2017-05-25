@@ -55,9 +55,10 @@
         </div>
       </div>
     </div>
-    <% @reviews.each do |review| %>
-    <%= review.content %>
-    <% end %>
+    <%= @reviews.last.content %>
+    <%= @reviews.last.rating %>
+    Product: <%= rating_for @product, "product", :star => 10 %>
+
 </div>
 
 

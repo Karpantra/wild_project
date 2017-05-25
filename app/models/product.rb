@@ -9,4 +9,5 @@ class Product < ApplicationRecord
   validates :city, presence: true
   validates :price, presence: true
   validates :address, presence: true
+  ratyrate_rateable 'Product'
 end
