@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
       <h2><%= @product.title %></h2>
+      rating  : <%= rating_for @product, 'Product' %>
       <p><u>Address</u> :<%= @product.address %></p>
       <p><u>City </u>:<%= @product.city %></p>
       <p><u>Price</u> : <%= @product.price %></p>
@@ -31,7 +32,7 @@
   </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
+      Let us a review !
     </button>
 
     <!-- Modal -->
@@ -45,26 +46,29 @@
           <div class="modal-body">
             <%= simple_form_for([@product, @review]) do |form| %>
               <%= form.input :content, as: :text, placeholder:"Our renters love to hear you ! Tell them how much you liked their places !" %>
-              <%= form.input :rating, collection: 0..5 %>
               <%= form.submit class: "btn btn-primary " %>
             <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
-    <%if  @reviews.empty? %>
-      <p> pas de reviews</p>
-      <%else %>
-      <%= @reviews.last.content %>
-      <%= @reviews.last.rating %>
-    <% end %>
 
+    <h2>
+      <%= pluralize @product.reviews.size, "review" %>
+    </h2>
+
+    <div id="reviews">
+      <% if @product.reviews.blank? %>
+        Be the first to leave a review for <%= @product.title %>
+      <% else %>
+        <% @product.reviews.each do |review| %>
+          <%= render 'reviews/show', review: review %>
+        <% end %>
+      <% end %>
+    </div>
 
 </div>
+
 
 
 

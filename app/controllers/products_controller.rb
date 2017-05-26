@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show,]
 
   def index
     search = params[:product][:search]
@@ -66,7 +67,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:address, :city, :title, :price, :description, :capacity, :category, :latitude, :longitude, photos: [])
+    params.require(:product).permit(:address, :city, :title, :price, :description, :capacity, :category, :latitude, :longitude, :seed_picture, photos: [])
   end
 end
 

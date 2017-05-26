@@ -1,40 +1,34 @@
-<div class="account-container">
+<div class="new_place_container">
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.5) 0%, rgba(12, 15, 15, 0.8) 50%), url('<%= image_path('homepage-picture-3.jpg')%>');">
 
-  <div class="content clearfix">
+     <div class="col-xs-12 col-md-4 col-push-4">
+          <h3>Become a Wild Member</h3>
+            <br>
+          <div class="login-fields text-center">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
 
+            <div class="form-inputs">
+              <%= f.input :name, class: "login username-field", placeholder: "name" %>
+              <%= f.input :phone_number, class: "login username-field", placeholder: "06 01 02 03 04" %>
+              <%= f.input :email, required: true, autofocus: true, class: "login username-field", placeholder: "email" %>
+              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), class: "login username-field", placeholder: "password" %>
+              <%= f.input :password_confirmation, required: true, class: "login username-field", placeholder: "password confirmation" %>
+            </div>
 
+            <div class="form-inputs">
+              <%= f.input :photo, as: :attachinary %>
+            </div>
 
-      <h3>Become a Wild Member</h3>
-        <br>
-      <div class="login-fields">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :name, class: "login username-field", placeholder: "name" %>
-          <%= f.input :phone_number, class: "login username-field", placeholder: "06 01 02 03 04" %>
-          <%= f.input :email, required: true, autofocus: true, class: "login username-field", placeholder: "email" %>
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), class: "login username-field", placeholder: "password" %>
-          <%= f.input :password_confirmation, required: true, class: "login username-field", placeholder: "password confirmation" %>
+            <div class="form-actions">
+              <%= f.button :submit, "Sign up", class: "btn btn-success" %>
+              <br>
+            </div>
+            <% end %>
+        <div class="render">
+        <%= render "devise/shared/links" %>
         </div>
-
-        <div class="form-inputs">
-          <%= f.input :photo, as: :attachinary %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "btn btn-success" %>
-        </div>
-        <% end %>
       </div>
-
-      <br>
-      <div class="col-sm-4">
-      <%= render "devise/shared/links" %>
-      </div>
-      <br>
+    </div>
   </div>
 </div>
-<br>
-<br>
-<br>
