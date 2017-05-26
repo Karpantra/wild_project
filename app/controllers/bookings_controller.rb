@@ -43,7 +43,6 @@ class BookingsController < ApplicationController
     subject:  "Booking #{@booking.name} created!"
     )
   end
-  end
 
   private
 
