@@ -37,14 +37,13 @@ class BookingsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-
-  # def creation_confirmation(booking)
-  #   @booking = booking
-  #   mail(
-  #   to:       @booking.user.email,
-  #   subject:  "Booking created!"
-  #   )
-  # end
+  def creation_confirmation(booking)
+    @booking = booking
+    mail(
+    to:       @booking.user.email,
+    subject:  "Booking #{@booking.name} created!"
+    )
+  end
 
   private
 
