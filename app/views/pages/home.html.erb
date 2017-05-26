@@ -4,14 +4,14 @@
 
 
 <div class="banner-content text-center parallax">
-  <h1>Amazing places finder</h1>
+  <h1>Wild places finder</h1>
   <p>Find amazing places for your your movies, photo shooting or events</p>
 
   <%= simple_form_for :product, :method => 'get',
       :html => { :class => 'form-search' }, url: products_path do |f| %>
     <%= f.input_field :search, placeholder: "city",
         class: "input-medium search-query" %>
-    <%= f.submit "Find a place!", class: "btn btn-primary", style:"text-decoration:none" %>
+    <%= f.submit "Find a Wild place!", class: "btn btn-primary", style:"text-decoration:none" %>
   <% end %>
 
   </div>
