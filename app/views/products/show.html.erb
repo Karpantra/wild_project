@@ -1,41 +1,64 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <h2><%= @product.title %></h2>
-      <p><u>Address</u> :<%= @product.address %></p>
-      <p><u>City </u>:<%= @product.city %></p>
-      <p><u>Price</u> : <%= @product.price %></p>
-      <p><u>Description </u>: <%= @product.description %></p>
-      <p><u>Capacity</u> : <%= @product.capacity %></p>
+<div class="form-wrapping">
+<div class="banner banner-product" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.8) 0%, rgba(12, 15, 15, 0.8) 50%), url('<%= image_path('homepage-picture.jpg')%>');">
+  <div class="show-card">
+    <div class="col-xs-12 col-sm-6 col-md-4"></div>
+      <div>
+        <h2><%= @product.title %></h2>
+        <p><strong>Address</strong> :<%= @product.address %></p>
+        <p><strong>City </strong>:<%= @product.city %></p>
+        <p><strong>Price</strong> : <%= @product.price %></p>
+        <p><strong>Description </strong>: <%= @product.description %></p>
+        <p><strong>Capacity</strong> : <%= @product.capacity %></p>
 
+      </div>
+      <div class="image-show col-xs-12 col-sm-6 col-md-4">
+        <% if @product.seed_picture.nil? || @product.seed_picture == "" %>
+        <% @product.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 200, height: 200, crop: :fill %>
+        <% end %>
+        <% else %>
+        <%= image_tag @product.seed_picture, height: 350, width: 350, crop: :fill %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+      <br>
+        <%= simple_form_for [@product, @booking] do |f| %>
+          <div class="input-daterange input-group" id="datepicker">
+            <input type="text" class="input-sm form-control" name="booking[check_in]" />
+            <span class="input-group-addon">to</span>
+            <input type="text" class="input-sm form-control" name="booking[check_out]" />
+          </div>
+          <br>
+          <%=  f.submit "Book the place", class: "btn btn-primary"%>
+        <% end %>
+      </div>
+      <div class="leave_review">
+       <h2>
+         <%= pluralize @product.reviews.size, "review" %>
+       </h2>
+
+       <div id="reviews">
+         <% if @product.reviews.blank? %>
+           Be the first to leave a review for <%= @product.title %>
+         <% else %>
+           <% @product.reviews.each do |review| %>
+             <%= render 'reviews/show', review: review %>
+           <% end %>
+         <% end %>
+         </div>
+         <br>
+         <br>
+          <button type="button" class="btn btn-primary not-wide" data-toggle="modal" data-target="#myModal">
+            Leave comment
+          </button>
+
+       </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <% if @product.seed_picture.nil? || @product.seed_picture == "" %>
-      <% @product.photos.each do |photo| %>
-      <%= cl_image_tag photo.path, width: 200, height: 200, crop: :fill %>
-      <% end %>
-      <% else %>
-      <%= image_tag @product.seed_picture, height: 350, width: 350, crop: :fill %>
-      <% end %>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <%= simple_form_for [@product, @booking] do |f| %>
-        <div class="input-daterange input-group" id="datepicker">
-          <input type="text" class="input-sm form-control" name="booking[check_in]" />
-          <span class="input-group-addon">to</span>
-          <input type="text" class="input-sm form-control" name="booking[check_out]" />
-        </div>
-        <%=  f.submit "Book the place", class: "btn btn-primary"%>
-      <% end %>
-    </div>
-  </div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
-    </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal modalbox fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -56,10 +79,6 @@
         </div>
       </div>
     </div>
-    <%= @reviews.last.content %>
-    <%= @reviews.last.rating %>
-    Product: <%= rating_for @product, "product", :star => 10 %>
-
 </div>
 
 
