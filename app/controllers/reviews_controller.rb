@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     if @review.save
       respond_to do |format|
         format.html { redirect_to product_path(@product) }
-        format.js
+        format.js {}
       end
     else
       respond_to do |format|
@@ -17,9 +17,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+  end
+
   private
 
   def review_params
-    params.require(:review).permit(:content, :rating)
+    params.require(:review).permit(:content)
   end
 end
