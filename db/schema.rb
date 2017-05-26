@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170526093019) do
 
   # These are extensions that must be enabled in order to support this database
@@ -136,7 +135,7 @@ ActiveRecord::Schema.define(version: 20170526093019) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "bookings", "products", column: "asset_id"
+  add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "products"
