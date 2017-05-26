@@ -4,6 +4,8 @@
     <div class="profile-header-infos">
     <% if @user.photo? %>
               <%= cl_image_tag @user.photo.path, width: 150, height: 150, crop: :thumb, radius: :max %>
+        <% else %>
+              <%= image_tag current_user.facebook_picture_url, :style => 'border-radius: 150px' %>
             <% end %>
       <h1><%= @user.name.capitalize %></h1>
       <h2><%= @user.email %></h2>
