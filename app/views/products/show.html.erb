@@ -56,9 +56,13 @@
         </div>
       </div>
     </div>
-    <%= @reviews.last.content %>
-    <%= @reviews.last.rating %>
-    Product: <%= rating_for @product, "product", :star => 10 %>
+    <%if  @reviews.empty? %>
+      <p> pas de reviews</p>
+      <%else %>
+      <%= @reviews.last.content %>
+      <%= @reviews.last.rating %>
+    <% end %>
+
 
 </div>
 

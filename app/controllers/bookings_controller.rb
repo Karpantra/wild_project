@@ -5,9 +5,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @product = Product.find(params[:product_id])
+    @booking.product = @product
     if @booking.save
-      UserMailer.creation_confirmation(@booking).deliver_now
       redirect_to user_path(current_user)
+      UserMailer.creation_confirmation(@booking).deliver_now
     else
       render "products/show"
     end
@@ -20,14 +21,13 @@ class BookingsController < ApplicationController
   end
 
 
-  def creation_confirmation(booking)
-    @booking = booking
-    mail(
-    to:       @booking.user.email,
-    subject:  "Booking #{@booking.name} created!"
-    )
-  end
-  end
+  # def creation_confirmation(booking)
+  #   @booking = booking
+  #   mail(
+  #   to:       @booking.user.email,
+  #   subject:  "Booking created!"
+  #   )
+  # end
 
   private
 
