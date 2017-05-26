@@ -9,6 +9,7 @@
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
 </head>
 <body>
 
@@ -28,5 +29,6 @@
   <%= javascript_include_tag 'application' %>
   <%= cloudinary_js_config %>
   <%= yield(:after_js) %>
+  <script src="magnific-popup/jquery.magnific-popup.js"></script>
 </body>
 </html>

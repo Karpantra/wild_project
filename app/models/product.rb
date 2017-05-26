@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :reviews, dependent: :destroy
   has_attachments :photos, maximum: 3
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -8,4 +9,5 @@ class Product < ApplicationRecord
   validates :city, presence: true
   validates :price, presence: true
   validates :address, presence: true
+  ratyrate_rateable 'Product'
 end
