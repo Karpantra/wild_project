@@ -14,10 +14,24 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = "confirmed"
+    @booking.save
+    # @booking.update(booking_params)
+
+    redirect_to user_path(current_user)
+
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to booking_path
+    redirect_to user_path(current_user)
   end
 
   private

@@ -1,3 +1,4 @@
+<div class="wrapper-profil">
 <div class="profile-header-wrapper">
   <div class="container profile-header-container text-center">
     <div class="profile-header-infos">
@@ -10,16 +11,16 @@
     </div>
     <div class="tabs">
       <a class="tab active" data-target="#pending">
-        <h3>Pending bookings</h3>
+        <h3>My pending bookings</h3>
       </a>
       <a class="tab" data-target="#confirmed">
-        <h3>Confirmed bookings</h3>
+        <h3>My confirmed bookings</h3>
       </a>
-      <a class="tab" data-target="#last">
+<!--       <a class="tab" data-target="#last">
         <h3>Last bookings</h3>
-      </a>
+      </a> -->
       <a class="tab" data-target="#validation">
-        <h3>On going demands</h3>
+        <h3>They want to rent my place</h3>
       </a>
     </div>
   </div>
@@ -37,18 +38,20 @@
       <%= render 'booking', booking: confirmed %>
     <% end %>
   </div>
-  <div class="tab-content hidden" id="last">
-    <% @last_bookings.each do |last| %>
-      <%= render 'booking', booking: last %>
-    <% end %>
-  </div>
+<!--   <div class="tab-content hidden" id="last">
+    <%# @last_bookings.each do |last| %>
+      <%#=render 'booking', booking: last %>
+    <%# end %>
+  </div> -->
   <div class="tab-content hidden" id="validation">
-    <% unless @booking_to_confirm == [] %>
-      <% @booking_to_confirm.each do |b| %>
+    <% if @booking_to_confirm.flatten.blank? %>
+        <% else %>
+      <% @booking_to_confirm.flatten.each do |b| %>
         <%= render 'confirmation', booking: b %>
       <% end %>
     <% end %>
   </div>
+</div>
 </div>
 
 

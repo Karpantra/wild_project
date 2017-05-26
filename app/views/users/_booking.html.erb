@@ -11,6 +11,6 @@
     <p>From <strong><%= booking.check_in %></strong> to <strong><%= booking.check_out %></strong></p>
   </div>
   <ul class="list-inline product-controls product-controls-hidden hidden-sm hidden-xs">
-    <li><a href=""><i class="fa fa-trash"></i></a></li>
+    <%= link_to "", booking_path(booking), method: :delete, class: "fa fa-trash"%>
   </ul>
 </div>

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @last_bookings = current_user.bookings.where(status: 'close')
 
     ######################################################
-
     @booking_to_confirm = []
     current_user.products.each do |product|
       @booking_to_confirm << product.bookings.where(status: 'pending')

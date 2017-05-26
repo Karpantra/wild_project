@@ -99,6 +99,11 @@
 .product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
 
 .fa-trash:before {
-    content: "\f1f8";
+    content: black;
+    font-size: 30px;
+  }
+
+  .fa-check:before {
+    content: black;
     font-size: 30px;
   }
