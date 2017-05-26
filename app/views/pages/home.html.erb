@@ -5,7 +5,7 @@
 
 <div class="banner-content text-center parallax">
   <h1>Wild places finder</h1>
-  <p>Find amazing places for your your movies, photo shooting or events</p>
+  <p>Find amazing places for your your movies, photo shootings or events</p>
 
   <%= simple_form_for :product, :method => 'get',
       :html => { :class => 'form-search' }, url: products_path do |f| %>
@@ -22,7 +22,35 @@
   <img class="align-image text-center" src="https://mstxs317jap2jkr871oardiejo-wpengine.netdna-ssl.com/wp-content/uploads/2014/04/down-arrow.png" alt="down-arrow" width="72" height="72">
   </a>
 </div>
-<div class="home-first-wrapper">
+<div class="supporting">
+   <div class="container">
+
+     <div class="col">
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/broadway/design.svg">
+       <h2>Research a place </h2>
+       <p>Find places with style</p>
+      <!--  <a class="btn-default" href="#">Learn more</a> -->
+     </div>
+
+     <div class="col">
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/broadway/develop.svg">
+       <h2>Select your perfect match </h2>
+       <p>We propose places to perfectly set your scene</p>
+       <!-- <a class="btn-default" href="#">Learn more</a> -->
+     </div>
+
+     <div class="col">
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/broadway/deploy.svg">
+       <h2>Just book it!</h2>
+       <p>Book directly on the website and engage with your host</p>
+       <!-- <a class="btn-default" href="#">Learn more</a> -->
+     </div>
+
+   </div>
+   <div class="clearfix"></div>
+ </div>
+
+<!-- <div class="home-first-wrapper">
   <div class="container text-center">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
@@ -36,59 +64,52 @@
       </div>
     </div>
   </div>
+</div> -->
 
-</div>
+<div id="carousel-example-generic" class="carousel slide carousel-top-link" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target=".carousel slide carousel-top-link" data-slide-to="0" class="active"></li>
+    <li data-target=".carousel slide carousel-top-link" data-slide-to="1"></li>
+    <li data-target=".carousel slide carousel-top-link" data-slide-to="2"></li>
+  </ol>
 
-
-
-
-
-  <div id="carousel-example-generic" class="carousel slide carousel-top-link" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target=".carousel slide carousel-top-link" data-slide-to="0" class="active"></li>
-      <li data-target=".carousel slide carousel-top-link" data-slide-to="1"></li>
-      <li data-target=".carousel slide carousel-top-link" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
       <%= image_tag 'homepage-picture-2.jpg' %>
-        <div class="carousel-caption">
+      <div class="carousel-caption">
         <h3>
-          Industry
+          SAINT OUEN
         </h3>
         <p>
           Amazing photo shooting for Carhartt
         </p>
-        </div>
       </div>
-      <div class="item">
+    </div>
+    <div class="item">
       <%= image_tag 'homepage-picture.jpg' %>
-        <div class="carousel-caption">
+      <div class="carousel-caption">
         <h3>
-          Old Factory
+          PANTIN
         </h3>
         <p>
           Very nice place APC's fashion show
         </p>
-        </div>
       </div>
+    </div>
     <div class="item">
-    <%= image_tag 'homepage-picture-3.jpg' %>
+      <%= image_tag 'homepage-picture-3.jpg' %>
       <div class="carousel-caption">
-      <h3>
-        Aubervilliers
-      </h3>
-      <p>
-        Awesome party organised by Faithless
-      </p>
+        <h3>
+          AUBERVILLIERS
+        </h3>
+        <p>
+          Awesome party organised by Faithless
+        </p>
       </div>
     </div>
-    </div>
-
-
+  </div>
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -105,110 +126,36 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-            <h1>Franchement ? Stylé !</h1>
-            <div class="testimonial-quote group">
-                <img src="http://placehold.it/120x120">
-                <div class="quote-container">
-                    <blockquote>
-                        <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
-                    </blockquote>
-                    <cite><span>Gautier</span>
-                    </cite>
-                </div>
-            </div>
+        <h1>So easy</h1>
+        <div class="testimonial-quote group">
+          <img src="http://placehold.it/120x120">
+          <div class="quote-container">
+            <blockquote>
+              <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
+            </blockquote>
+            <cite><span>Michel - bailiff - Pathé</span>
+            </cite>
+          </div>
         </div>
+      </div>
 
-
-        <div class="col-xs-12 col-sm-6">
-            <h1>Une super expérience</h1>
-            <div class="testimonial-quote group right">
-                <img src="http://placehold.it/120x120">
-                <div class="quote-container">
-                    <div>
-                        <blockquote>
-                            <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
-                        </blockquote>
-                        <cite><span>Raphaël</span>
-                        </cite>
-                    </div>
-                </div>
+      <div class="col-xs-12 col-sm-6">
+        <h1>A lot of choices</h1>
+        <div class="testimonial-quote group right">
+          <img src="http://placehold.it/120x120">
+          <div class="quote-container">
+            <div>
+              <blockquote>
+                <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
+              </blockquote>
+              <cite><span>Didier - CEO - Gaumont</span>
+              </cite>
             </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
-
-
-
-
-<!--
-<div class="container">
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-6">
-      <h1>Franchement ? Stylé !</h1>
-            <div class="testimonial-quote group">
-                <img src="http://placehold.it/120x120">
-                <div class="quote-container">
-                    <blockquote>
-                        <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
-                    </blockquote>
-                    <cite><span>Gautier</span>
-                    </cite>
-                </div>
-            </div>
-        </div>
-
-
-
-      <div class="col-xs-12 col-sm-6">
-            <h1>Franchement ? Stylé !</h1>
-                  <div class="testimonial-quote group">
-                      <img src="http://placehold.it/120x120">
-                      <div class="quote-container">
-                          <blockquote>
-                              <p>Overall, fantastic! I'd recommend them to anyone looking for a creative, thoughtful, and professional team.”</p>
-                          </blockquote>
-                          <cite><span>Gautier</span>
-                          </cite>
-                      </div>
-                  </div>
-        </div>
   </div>
 </div>
 
- -->
 
-
-
-
-
-
-
-<div class="supporting">
-   <div class="container">
-
-     <div class="col">
-       <img src="https://s3.amazonaws.com/codecademy-content/projects/broadway/design.svg">
-       <h2>Research a place </h2>
-       <p>Find awesome places</p>
-       <a class="btn-default" href="#">Learn more</a>
-     </div>
-
-     <div class="col">
-       <img src="https://s3.amazonaws.com/codecademy-content/projects/broadway/develop.svg">
-       <h2>Select your perfect choice </h2>
-       <p>Enjoy a unespected venue for your next party</p>
-       <a class="btn-default" href="#">Learn more</a>
-     </div>
-
-     <div class="col">
-       <img src="https://s3.amazonaws.com/codecademy-content/projects/broadway/deploy.svg">
-       <h2>Just book it!</h2>
-       <p>And leave a review on our website</p>
-       <a class="btn-default" href="#">Learn more</a>
-     </div>
-
-   </div>
-   <div class="clearfix"></div>
- </div>
