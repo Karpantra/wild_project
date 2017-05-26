@@ -9,4 +9,16 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: @user.email, subject: 'Welcome to The Wild project !')
   end
+
+
+
+
+  def creation_confirmation(booking)
+    @user = booking.user.name
+    @booking = booking
+    mail(
+    to:       @booking.user.email,
+    subject:  "Congratz ! You just booked a new place !"
+    )
+  end
 end
