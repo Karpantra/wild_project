@@ -11,12 +11,16 @@
 
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <% if @product.seed_picture.nil? || @product.seed_picture == "" %>
-      <% @product.photos.each do |photo| %>
-      <%= cl_image_tag photo.path, width: 200, height: 200, crop: :fill %>
-      <% end %>
+      <% if @product.photos.blank? %>
+        <% if @product.seed_picture %>
+          <%= image_tag @product.seed_picture, height: 350, width: 350 %>
+        <% else %>
+          <%= image_tag 'logo.png', height: 350, width: 350 %>
+        <% end %>
       <% else %>
-      <%= image_tag @product.seed_picture, height: 350, width: 350, crop: :fill %>
+        <% @product.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 200, height: 200, crop: :fill %>
+        <% end %>
       <% end %>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
