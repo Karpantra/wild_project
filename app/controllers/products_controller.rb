@@ -1,10 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show,]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     search = params[:product][:search]
     if search.to_s.size > 0
-      #raise
       @products= Product.near(search, 10).where.not(latitude: nil, longitude: nil)
          @hash = Gmaps4rails.build_markers(@products) do |product, marker|
          marker.lat product.latitude
@@ -18,7 +17,6 @@ class ProductsController < ApplicationController
         marker.lng product.longitude
       # marker.infowindow render_to_string(partial: "/products/map_box", locals: { product: product })
       end
-    # raise
     end
   end
 
