@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
-  mount Attachinary::Engine => "/attachinary"
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
@@ -12,4 +11,6 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
   end
   resources :bookings, only: [:destroy, :update, :edit]
+  mount Attachinary::Engine => "/attachinary"
+
 end

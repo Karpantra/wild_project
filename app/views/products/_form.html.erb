@@ -6,13 +6,13 @@
       <%= f.input :title, placeholder: "Title" %>
       <%= f.input :address, placeholder: "Address" %>
       <%= f.input :city, placeholder: "City" %>
-      <%= f.input :price, placeholder: "Price" %>
+      <%= f.input :photos, as: :attachinary %>
     </div>
     <div class="col-xs-10 col-offset-1 col-sm-6">
       <%= f.input :description, placeholder: "Tell us a bit about your product" %>
       <%= f.input :capacity, placeholder: "How many people can you welcome?" %>
       <%= f.input :category, placeholder: "How would you define your place ?" %>
-      <%= f.input :photos, as: :attachinary %>
+      <%= f.input :price, placeholder: "Price" %>
     </div>
       <%= f.submit "Add a Wild Place", class: "btn btn-success" %>
     <% end %>
