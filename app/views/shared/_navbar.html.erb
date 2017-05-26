@@ -24,13 +24,11 @@
 
 
 
-
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-
-        <% if @user.photo? %>
-          <%= cl_image_tag @user.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% if current_user.photo? %>
+          <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
