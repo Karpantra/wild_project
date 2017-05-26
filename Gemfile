@@ -29,11 +29,13 @@ gem "letter_opener", group: :development
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'momentjs-rails', '>= 2.9.0'
+gem 'ratyrate'
 
 
 # geocoder
 gem "gmaps4rails"
 gem "geocoder"
+gem 'magnific-popup-rails', '~> 1.1.0'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
