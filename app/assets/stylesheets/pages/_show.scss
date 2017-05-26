@@ -5,3 +5,35 @@
     margin: 0 5px;
   }
 }
+.show-card {
+  position: relative;
+
+  background-color: rgba(250, 250, 250, 0.3);
+  border-radius: 10px;
+  opacity: 0.9;
+  padding: 10px 5px;
+}
+.banner-product {
+  flex-direction: column;
+}
+
+.modalbox {
+  border-radius: 10px;
+  opacity: 0.8;
+  background-color: rgba(200, 200, 250, 0.3);
+}
+.not-wide {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+.image-show {
+  img {
+  border-radius: 10px;
+  opacity: 0.8;
+  max-height: 200px;
+  max-width: 200px;
+  }
+}
