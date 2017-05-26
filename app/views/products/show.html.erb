@@ -1,16 +1,16 @@
-<div class="form-wrapping">
-<div class="banner banner-product" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.8) 0%, rgba(12, 15, 15, 0.8) 50%), url('<%= image_path('homepage-picture.jpg')%>');">
-  <div class="show-card">
-    <div class="col-xs-12 col-sm-6 col-md-4"></div>
-      <div>
-        <h2><%= @product.title %></h2>
-        <p><strong>Address</strong> :<%= @product.address %></p>
-        <p><strong>City </strong>:<%= @product.city %></p>
-        <p><strong>Price</strong> : <%= @product.price %></p>
-        <p><strong>Description </strong>: <%= @product.description %></p>
-        <p><strong>Capacity</strong> : <%= @product.capacity %></p>
 
-      </div>
+<div class="form-wrapping">
+  <div class="banner banner-product" style="background-image: linear-gradient(-225deg, rgba(145, 136, 154, 0.8) 0%, rgba(12, 15, 15, 0.8) 50%), url('<%= image_path('homepage-picture.jpg')%>');">
+    <div class="show-card">
+      <div class="col-xs-12 col-sm-6 col-md-4"></div>
+        <div>
+          <h2><%= @product.title %></h2>
+          <p><strong>Address</strong> :<%= @product.address %></p>
+          <p><strong>City </strong>:<%= @product.city %></p>
+          <p><strong>Price</strong> : <%= @product.price %></p>
+          <p><strong>Description </strong>: <%= @product.description %></p>
+          <p><strong>Capacity</strong> : <%= @product.capacity %></p>
+        </div>
       <div class="image-show col-xs-12 col-sm-6 col-md-4">
         <% if @product.seed_picture.nil? || @product.seed_picture == "" %>
         <% @product.photos.each do |photo| %>
@@ -55,8 +55,7 @@
        </div>
     </div>
     </div>
-    <!-- Button trigger modal -->
-
+    
     <!-- Modal -->
     <div class="modal modalbox fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -68,18 +67,10 @@
           <div class="modal-body">
             <%= simple_form_for([@product, @review]) do |form| %>
               <%= form.input :content, as: :text, placeholder:"Our renters love to hear you ! Tell them how much you liked their places !" %>
-              <%= form.input :rating, collection: 0..5 %>
               <%= form.submit class: "btn btn-primary " %>
             <% end %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
 </div>
-
-
-
